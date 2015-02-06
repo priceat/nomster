@@ -37,12 +37,11 @@ class PlacesController < ApplicationController
     end
     @place.update_attributes(place_params)
     if @place.valid?
-      redirect_to root_path
+      respond_to do |format|
+      format.html { redirect_to root_path, notice: "Things change.. As do places. Well done!" }
+      end
     else
       render :new, :status => :unprocessable_entity
-    end
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: "Things change.. As do places. Well done!" }
     end
   end
 
