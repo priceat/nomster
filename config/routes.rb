@@ -7,5 +7,5 @@ Nomster::Application.routes.draw do
   resources :places do
    resources :photos, :only => :create
  end
- 
+ resources :users, :only => :show
 end
